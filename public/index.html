@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-Connect | 校内依頼掲示板</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <header>
+        <h1 class="rogo-name">D-Connect</h1>
+        <div class="add-btnheader">
+        <button id="add-portfolio-btn">↗︎ 作品一覧</button>
+        <button id="add-request-btn">＋ 依頼を投稿</button>
+        </div>
+    </header>
+
+
+    <main class="request-mainbox">
+        <div class="request-subbox">
+            <div class="request-category">
+                <h6 class="category-name">カテゴリ検索</h6>
+                <fieldset class="request-department">
+                    <legend>依頼元</legend>
+                    <div class="dropdown-menu">
+                    <div>グラフィックデザイン科</div>
+                    <div>デジタルデザイン科</div>
+                    <div>写真科</div>
+                    </div>
+                </fieldset>
+
+                 <fieldset class="request-subject">
+                    <legend>媒体</legend>
+                    <div class="dropdown-menu">
+                    <div>グラフィック</div>
+                    <div>タイポグラフィ</div>
+                    <div>ロゴマーク</div>
+                    <div>ポスター</div>
+                    <div>パッケージ</div>
+                    <div>デジタル</div>
+                    <div>写真</div>
+                    <div>被写体</div>
+                    <div>共同制作</div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div id="request-list"></div>
+            
+                
+            <!-- <div class="loading-message">依頼データを読み込み中...</div> -->
+        </div>
+    </main>
+
+
+<!-- 依頼投稿カード -->
+    <!-- <div id="post-form-container" class="post-form-container" style="display: none;">
+        <h3>新しい依頼を投稿する</h3>
+      <form id="request-form">
+           <input type="text" id="title" placeholder="タイトル" required>
+            <select id="discipline" required>
+                <option value="" disabled selected>学科を選択</option>
+                <option value="デジタルデザイン科">デジタルデザイン科</option>
+                <option value="グラフィック・デザイン科">グラフィック・デザイン科</option>
+                <option value="イラストレーション科">イラストレーション科</option>
+                <option value="キャラクターデザイン科">キャラクターデザイン科</option>
+                <option value="写真科">写真科</option>
+                <option value="アート科">アート科</option>
+                <option value="ジュエリーデザイン科">ジュエリーデザイン科</option>
+        </select>
+        <textarea id="description" placeholder="依頼の詳細（500字以内）" required maxlength="500"></textarea>
+        <button type="submit">投稿する</button>
+    </form> -->
+
+    <!-- 依頼投稿カード背景黒にするバージョン -->
+    <div id="post-form-container" class="post-form-container" style="display: none;">
+
+        <div id="request-form-card">
+        <h3>新しい依頼を投稿する</h3>
+
+      <form id="request-form">
+        
+           <input type="text" id="title" placeholder="タイトル" required>
+            <select id="discipline" required>
+                <option value="" disabled selected>学科を選択</option>
+                <option value="デジタルデザイン科">デジタルデザイン科</option>
+                <option value="グラフィック・デザイン科">グラフィック・デザイン科</option>
+                <option value="イラストレーション科">イラストレーション科</option>
+                <option value="キャラクターデザイン科">キャラクターデザイン科</option>
+                <option value="写真科">写真科</option>
+                <option value="アート科">アート科</option>
+                <option value="ジュエリーデザイン科">ジュエリーデザイン科</option>
+        </select>
+            <textarea id="description" placeholder="依頼の詳細（500字以内）" required maxlength="500"></textarea>
+            <div style="display: flex; gap: 10px;">
+            <button type="submit">投稿する</button>
+            <button type="button" id="close-form-btn">× 閉じる</button>
+        </form>
+    </div>
+    </div>
+
+    
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script> 
+
+    <script src="firebase-config.js"></script>
+    <script src="script.js"></script>
+
+
+</div> 
+</body>
+</html>

@@ -1,0 +1,392 @@
+@charset "utf-8";
+
+/* 1. リセットと全体設定 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8fbff; /* やや明るいグレーの背景 */
+    color: #2c2c2c;
+}
+
+h1, h2 {
+    margin: 0;
+}
+/* 2. ヘッダー (header) のスタイル */
+header {
+    background-color: #f8fbff; /* 青色 */
+    color: rgb(7, 98, 255);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between; /* ロゴとボタンを左右に配置 */
+    align-items: center;
+    border-bottom: 1px solid #dbdbdb;
+    position: sticky; /* スクロールしてもヘッダーを固定 */
+    top: 0;
+    z-index: 1000;
+}
+
+.rogo-name {
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.add-btnheader{
+}
+
+#add-request-btn {
+    background-color: #28a745; /* 緑色 */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin: 0 4px;
+}
+
+#add-portfolio-btn {
+    background-color: #112dff; /* 緑色 */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    margin: 0 4px;
+}
+
+#add-request-btn:hover {
+    background-color: #218838;
+}
+
+/* 3. メインコンテンツ (main) のスタイル */
+/* 3. メインコンテンツ (main) のスタイル */
+/* 3. メインコンテンツ (main) のスタイル */
+
+.request-mainbox{
+    padding: 20px;
+    padding-top: 30px;
+}
+.request-subbox{
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}
+.request-category{
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    border: none;
+}
+
+.request-category fieldset{
+    position: relative;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+    
+
+fieldset{
+    border: none;
+}
+
+
+.category-name{
+    margin: 0 0 14px 0;
+    padding: 0; 
+    font-size: 14pt;  
+    color: #555; 
+}
+
+fieldset legend{
+    /* margin-top: 50px; */
+    font-size: 14px;
+    font-weight: bold;
+    color: #555;
+    /* fieldset内のlegend（依頼元・媒体）をボタンっぽくする */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    user-select: none;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    background-color: white;
+    width: 200px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15); /* 浮いている感（影） */
+    padding: 10px 0;
+    border-radius: 4px;
+}
+
+/* fieldsetに .open クラスがついたら表示する */
+fieldset.open .dropdown-menu {
+    display: block;
+}
+
+/* メニュー内の項目（学科名・媒体名） */
+.dropdown-menu div {
+    padding: 10px 20px;
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+    transition: background 0.2s;
+}
+
+.dropdown-menu div:hover {
+    background-color: #f0f7ff;
+    color: #007bff;
+}
+
+fieldset legend::after{
+    content: ' ▼';
+    transition: transfoem 0.3;
+}
+/* 開いている時は矢印を逆にする */
+fieldset.open legend::after{
+    transform: rotate(180deg);
+}
+
+
+.request-department,
+.request-subject{
+    margin: 0;
+    margin-bottom: 6px;
+    padding: 0;
+}
+
+#request-list {
+    padding: 20px;
+    max-width: 1200px; /* 最大幅を設定して中央に寄せる */
+    margin: 20px auto;
+    width: 70%;
+    
+    /* 1列表示を維持 (モバイル優先) */
+    display: grid; /* Gridコンテナとして設定 */
+    gap: 20px;     /* カード間の間隔 */
+    margin: 20px auto;
+    padding: 0;
+}
+
+@media (min-width: 600px){
+    #request-list{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    
+}
+
+
+.loading-message, .empty-message, .error-message {
+    text-align: center;
+    color: #666;
+    padding: 50px;
+    font-size: 1.1em;
+}
+
+.error-message {
+    color: #dc3545; /* エラーは赤色に */
+    font-weight: bold;
+}
+
+/* 4. 依頼カード (request-card) のスタイル */
+.request-card {
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #dbdbdb;
+    padding: 26px;
+    margin: 0px;
+    height: 300px;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); */
+    /* border-left: 5px solid #007bff;  */
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.request-card:hover {
+    transform: translateY(-3px); /* ホバーで少し持ち上げる */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* カード内のヘッダー（タイトルとステータス） */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* 上揃え */
+    margin-bottom: 10px;
+    border-bottom: 1px dashed #eee;
+    padding-bottom: 10px;
+}
+
+.card-header h3 {
+    font-size: 1.4em;
+    color: #007bff;
+    margin-right: 15px; /* ステータスとの間にスペース */
+}
+
+/* ステータスタグのスタイル（script.jsで status-tag クラスが付与される）*/
+.status-tag {
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    font-weight: bold;
+    color: white;
+    /* 「募集中」のデフォルト色 */
+    background-color: #28a745; 
+    flex-shrink: 0; /* タイトルが長くなっても縮まないようにする */
+}
+
+/* カード内のその他の情報 */
+.request-card p {
+    margin: 8px 0;
+    font-size: 0.95em;
+}
+
+.request-card strong {
+    color: #555;
+    font-weight: normal;
+    margin-right: 5px;
+}
+
+.date-info {
+    color: #999;
+    font-size: 0.8em;
+    text-align: right;
+    margin-top: 15px;
+    border-top: 1px solid #f8f8f8;
+    padding-top: 10px;
+}
+
+/* 詳細を見るボタンのスタイル */
+.request-card button {
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.request-card button:hover {
+    background-color: #0056b3;
+}
+
+/* 5. フォームのスタイル (Day 4で index.html に追加されます) */
+/* .post-form-container {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    border-top: 5px solid #ffa100; 
+    max-width: 500px;
+    margin: 20px auto;
+} */
+
+/*　「閉じる」の直ぐ下に依頼カードを配置する場合*/
+/* .post-form-container {
+    position: fixed;  
+    top: 80px;         
+    right: 20px;          
+    width: 350px;      
+    z-index: 2000;  
+
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    border-top: 5px solid #ffa100; 
+} */
+
+/*　中央に背景を暗くして依頼カードを配置する場合*/
+.post-form-container{
+    /* 固定配置で画面全体を覆う */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+
+    /* 中身（フォーム）を真ん中に寄せる */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.post-form-card{
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0, 0.3);
+}
+
+.post-form-container h3 {
+    color: #ffa100;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#request-form input[type="text"],
+#request-form select,
+#request-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; 
+    font-size: 1em;
+}
+
+#request-form textarea {
+    resize: vertical; 
+    min-height: 100px;
+}
+
+#request-form button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+#request-form button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* ヘッダーの中の配置を整える */
+.header-actions {
+    position: relative; /* フォームをボタン基準で配置するため */
+}
+/* フォームが表示されるときのアニメーション（任意） */
+/* .post-form-container {
+    transition: all 0.3s ease;
+    /* 元々あるスタイルに、少しマージンを調整すると綺麗です */
+    /*margin-top: 20px;} */
+
+
