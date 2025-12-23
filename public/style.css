@@ -206,8 +206,7 @@ fieldset.open legend::after{
     padding: 26px;
     margin: 0px;
     height: 300px;
-    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); */
-    /* border-left: 5px solid #007bff;  */
+
     transition: transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
 }
@@ -284,32 +283,6 @@ fieldset.open legend::after{
     background-color: #0056b3;
 }
 
-/* 5. フォームのスタイル (Day 4で index.html に追加されます) */
-/* .post-form-container {
-    background-color: white;
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
-    border-top: 5px solid #ffa100; 
-    max-width: 500px;
-    margin: 20px auto;
-} */
-
-/*　「閉じる」の直ぐ下に依頼カードを配置する場合*/
-/* .post-form-container {
-    position: fixed;  
-    top: 80px;         
-    right: 20px;          
-    width: 350px;      
-    z-index: 2000;  
-
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    border-top: 5px solid #ffa100; 
-} */
-
 /*　中央に背景を暗くして依頼カードを配置する場合*/
 .post-form-container{
     /* 固定配置で画面全体を覆う */
@@ -383,10 +356,7 @@ fieldset.open legend::after{
 .header-actions {
     position: relative; /* フォームをボタン基準で配置するため */
 }
-/* フォームが表示されるときのアニメーション（任意） */
-/* .post-form-container {
-    transition: all 0.3s ease;
-    /* 元々あるスタイルに、少しマージンを調整すると綺麗です */
-    /*margin-top: 20px;} */
+
+
 
 

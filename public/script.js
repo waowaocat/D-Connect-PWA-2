@@ -1,21 +1,5 @@
 // public/script.js
 
-// // ログイン状態を監視し、ログインしていなければ匿名ログインする
-// firebase.auto().onAuthStateChanged((user)=>{
-//     if(!user) {
-//         firebase.auto().sighInAnonymously();
-//     }else{
-//         console.log("ログイン中のユーザーID", user.uid);
-//     }
-// });
-
-
-
-
-
-
-
-
 // 【修正点 2】トップレベルで Firebase サービスとコレクションを初期化する
 // これにより、フォーム送信イベントが発生したときには既に準備ができている状態になります。
 const db = firebase.firestore();
@@ -149,23 +133,6 @@ document.querySelectorAll('fieldset legend').forEach(legend => {
          parentFieldset.classList.toggle('open')
 });
 });
-
-// 「＋ 依頼を投稿」ボタンが押された時の処理
-// addRequestBtn.addEventListener('click', () => {
-//     // 現在の表示状態を確認
-//     if (postFormContainer.style.display === 'none' || postFormContainer.style.display === '') {
-//         // 隠れていたら表示する
-//         postFormContainer.style.display = 'block';
-//         addRequestBtn.textContent = '× 閉じる'; // ボタンの文字を変えると親切
-//         addRequestBtn.style.backgroundColor = '#dc3545'; // 赤色に変更
-//     } else {
-//         // 表示されていたら隠す（トグル機能）
-//         postFormContainer.style.display = 'none';
-//         addRequestBtn.textContent = '＋ 依頼を投稿';
-//         addRequestBtn.style.backgroundColor = '#28a745'; // 元の緑色に戻す
-//     }
-// });
-
 
 
 //　「＋ 依頼を投稿」ボタンが押された時の処理　
