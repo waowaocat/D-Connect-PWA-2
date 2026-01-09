@@ -5,7 +5,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-    background-color: #f8fbff; /* やや明るいグレーの背景 */
+    background-color: #ffffff; /* やや明るいグレーの背景 */
     color: #2c2c2c;
 }
 
@@ -14,7 +14,7 @@ h1, h2 {
 }
 /* 2. ヘッダー (header) のスタイル */
 header {
-    background-color: #f8fbff; /* 青色 */
+    background-color: #ffffff; /* 青色 */
     color: rgb(7, 98, 255);
     padding: 15px 20px;
     display: flex;
@@ -29,19 +29,19 @@ header {
 .header-left {
     display: flex;
     align-items: center;
-    gap: 40px; 
+    gap: 60px; 
 }
 
 .header-nav {
     display: flex;
-    font-size: 12pt;
-    gap: 20px;
+    font-size: 14px;
+    gap: 45px;
 }
 .header-nav a {
 
     text-decoration: none;
     color: #555;
-    font-weight: bold;
+    font-weight: 500;
     transition: color 0.3s
 }
 .header-nav a:hover {
@@ -63,7 +63,7 @@ header {
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 12pt;
+    font-size: 14px;
     font-weight: bold;
     transition: background-color 0.3s;
     margin: 0 4px;
@@ -76,7 +76,7 @@ header {
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 12pt;
+    font-size: 14px;
     font-weight: bold;
     transition: background-color 0.3s;
     margin: 0 4px;
@@ -91,21 +91,22 @@ header {
 /* 3. メインコンテンツ (main) のスタイル */
 
 .request-mainbox{
-    padding: 20px;
-    padding-top: 30px;
+    display: flex !important;
+    flex-direction: row !important;
+    min-height: 100vh;
 }
 .request-subbox{
-    display: flex;
-    flex-direction: row;
-    gap: 24px;
+    display: flex !important;
+    gap: 40px !important;
+
 }
 .request-category{
-    display: flex;
-    flex-direction: column;
+    /* width: 200px; */
+    flex-shrink: 0;
     position: sticky;
-    border: none;
+    top: 100px;
 }
-
+    
 .request-category fieldset{
     position: relative;
     border: none;
@@ -122,15 +123,17 @@ fieldset{
 .category-name{
     margin: 0 0 14px 0;
     padding: 0; 
-    font-size: 14pt;  
-    color: #555; 
+    font-weight: 600;
+    font-size: 16pt;  
+    color: #50a5ff; 
 }
 
 fieldset legend{
     /* margin-top: 50px; */
-    font-size: 14px;
-    font-weight: bold;
-    color: #555;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 4px 0;
+    color: #656565;
     /* fieldset内のlegend（依頼元・媒体）をボタンっぽくする */
     cursor: pointer;
     display: flex;
@@ -187,16 +190,14 @@ fieldset.open legend::after{
 }
 
 #request-list {
-    padding: 20px;
     max-width: 1200px; /* 最大幅を設定して中央に寄せる */
-    margin: 20px auto;
+    margin: 0px auto;
+    margin-left: 30px;
     width: 70%;
     
     /* 1列表示を維持 (モバイル優先) */
     display: grid; /* Gridコンテナとして設定 */
     gap: 20px;     /* カード間の間隔 */
-    margin: 20px auto;
-    padding: 0;
 }
 
 @media (min-width: 600px){
@@ -222,15 +223,33 @@ fieldset.open legend::after{
 
 /* 4. 依頼カード (request-card) のスタイル */
 .request-card {
+    position: relative;
     background-color: white;
+    aspect-ratio: 1 / 1.414;
     border-radius: 8px;
     border: 1px solid #dbdbdb;
+    overflow: hidden;
     padding: 26px;
     margin: 0px;
-    height: 400px;
+    display: flex;
+    flex-direction: column;
+    height: 480px;
+    gap: 12px;
 
     transition: transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
+}
+
+.card-image-placeholder {
+    width: 100%;
+    aspect-ratio: 1.6 / 1;
+    background: #f0f0f0;
+    border-radius: 8px;
+}
+.card-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
 }
 
 .request-card:hover {
@@ -256,6 +275,10 @@ fieldset.open legend::after{
 
 /* ステータスタグのスタイル（script.jsで status-tag クラスが付与される）*/
 .status-tag {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    z-index: 10;
     padding: 6px 10px;
     border-radius: 4px;
     font-size: 0.85em;
@@ -287,7 +310,7 @@ fieldset.open legend::after{
     padding-top: 10px;
 }
 
-/* 詳細を見るボタンのスタイル */
+/* ボタンのスタイル */
 .request-card button {
     display: block;
     width: 100%;
@@ -381,4 +404,216 @@ fieldset.open legend::after{
 
 
 
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
 
+/* post-portfolioのcss適用 */
+/* 全体のレイアウト調整 */
+.post-portfolio-container {
+    display: flex !important;
+    flex-direction: row !important;
+    min-height: 100vh;
+}
+.post-portfolio-subbox {
+    flex: 1;
+    display: flex !important;
+    gap: 40px !important;
+    padding-top: 40px;
+
+}
+
+/* 左サイド：アイコンメニュー */
+.side-nav {
+    width: 80px;
+    flex-shrink: 0;
+    position: sticky;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding-top: 40px;
+    align-items: center;
+}
+.nav-item {
+    font-weight: ;
+    text-align: center;
+    color: #242424;
+    cursor: pointer;
+}
+.nav-item.active { color: #0762ff; font-weight: bold; }
+.nav-item .icon { font-size: 24px; display: block; margin-bottom: 5px; }
+.nav-item p { font-size: 10px; margin: 0; }
+
+/* 中央：アップロードエリア */
+.upload-section {
+    flex: 2; 
+    margin: 0 0 0 150px !important;
+}
+.section-title { font-size: 22px; margin-bottom: 25px; font-weight: bold; }
+
+.upload-dropzone {
+    width: 100%;
+    max-width: 700px;
+
+    aspect-ratio: 1.414 / 1;
+    height: auto;
+
+    border: 2px dashed #e0e0e0;
+    border-radius: 10px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* 下のグレーバーを綺麗に収める */
+    margin: 0;
+}
+
+.upload-main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.big-upload-icon {
+    width: 80px; height: 80px;
+    background-color: #f5f5f5;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px; color: #d0d0d0;
+    margin-bottom: 20px;
+}
+
+.main-text { font-size: 20px; font-weight: bold; margin: 2px 0; }
+.sub-text { font-size: 12px; color: #999; margin-top: 10px; }
+
+.upload-bottom-bar {
+    height: 60px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: #888; font-size: 14px;
+}
+
+/* 右サイド：フォーム */
+.form-section { width: 350px; display: flex; flex-direction: column; gap: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-size: 14px; color: #666; }
+.form-group input, .form-group textarea, .form-group select {
+    width: 100%; padding: 12px; border: 1px solid #e0e0e0; border-radius: 6px; font-size: 14px;
+}
+.form-group textarea { height: 200px; resize: none; }
+
+
+
+
+
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+
+
+/* マイページ全体のレイアウト */
+.mypage-container {
+    width: 100% !important;
+    background-color: #f8fbff;
+}
+
+.mypage-subbox {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 50px !important;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 40px;
+}
+
+/* プロフィールカード（左側） */
+.mypage-profile-card {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.profile-avatar {
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 50%;
+    margin-bottom: 25px;
+}
+
+.mypage-profile-card .user-name {
+    font-size: 26px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.mypage-profile-card .user-meta {
+    color: #888;
+    font-size: 14px;
+    margin: 10px 0 30px 0;
+}
+
+/* メインコンテンツ（右側） */
+.mypage-main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.bio-text {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #444;
+    max-width: 600px;
+}
+
+/* 作品グリッド */
+.mypage-works-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.work-thumb {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+}
+
+.work-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 12px;
+}
+
+/* スキルタグ */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skill-tags span {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+}

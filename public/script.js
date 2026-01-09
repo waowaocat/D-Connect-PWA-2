@@ -53,10 +53,16 @@ function fetchAndRenderRequests() {
             }
 
             card.innerHTML = `
+                <div class="card-image-placeholder">
+                    <img src="${data.imageUrl || 'https://via.placeholder.com/400x300?text=No+Image'}" alt="依頼画像">
+                </div>
+                
+                <div class="card-body" style="padding: 15px;">
                 <div class="card-header">
-                    <h3>${data.title}</h3>
+                    <h3 class="card-title">${data.title}</h3>
                     <span class="status-tag">${data.status}</span>
                 </div>
+                
                 <p><strong>学科:</strong> ${data.discipline}</p>
                 <p class="date-info">投稿日時: ${dateString}</p>
                 <button class="detail-button">詳細を見る</button>

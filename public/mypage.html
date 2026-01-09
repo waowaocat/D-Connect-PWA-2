@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作品を投稿 - CaD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <h1 class="rogo-name">CaD</h1>
+            <nav class="header-nav">
+                <a href="mypage.html">マイページ</a>
+                <a href="index.html">依頼を見る</a>
+                <a href="check-portfolio.html">作品を見る</a>
+                <a href="likes.html">いいね作品</a>
+                <a href="requests.html">検討中</a>
+                <a href="messaage.html">メッセージ</a>
+            </nav>   
+        </div>
+
+        <div class="add-btnheader">
+            <a href="post-portfolio.html" style="text-decoration: none;">
+                <button id="add-portfolio-btn">＋ 作品を追加</button>
+            </a>
+                <button id="add-request-btn">＋ 依頼を投稿</button>
+        </div>
+    </header>
+<main class="mypage-container">
+    <div class="mypage-subbox">
+        <aside class="side-nav">
+            <div class="nav-item">
+                <span class="icon">👤</span>
+                <p>プロフィール</p>
+            </div>
+            <div class="nav-item">
+                <span class="icon">💙</span>
+                <p>いいね作品</p>
+            </div>
+            <div class="nav-item active">
+                <span class="icon">📁</span>
+                <p>作品を追加</p>
+            </div>
+            <div class="nav-item">
+                <span class="icon">💬</span>
+                <p>メッセージ</p>
+            </div>
+        </aside>  
+
+        <section class="mypage-profile-card">
+            <div class="profile-avatar-wrapper">
+                <div id="user-avatar" class="profile-avatar"></div>
+            </div>
+            <div class="profile-info">
+                <h2 id="display-name" class="user-name">読み込み中...</h2>
+                <p id="display-department" class="user-meta">----</p>
+            </div>
+
+            <div class="profile-skills">
+                <h3>スキル</h3>
+                <div id="skill-tags" class="skill-tags">
+                    </div>
+            </div>
+        </section>
+
+        <section class="mypage-main-content">
+            <div class="bio-section">
+                <h3>自己紹介</h3>
+                <p id="display-bio" class="bio-text">自己紹介文がここに表示されます。</p>
+            </div>
+
+            <div class="my-works-section">
+                <h3>作品</h3>
+                <div id="my-works-grid" class="mypage-works-grid">
+                    <div class="work-card">
+                        <div class="work-thumb"></div>
+                        <p class="work-title">作品タイトル</p>
+                    </div>
+                </div>
+            </div>
+        </section>    
+    </div>
+</main>

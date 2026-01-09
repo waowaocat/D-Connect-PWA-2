@@ -10,9 +10,11 @@
 <body>
     <header>
         <div class="header-left">
-            <h1 class="rogo-name">Cad</h1>
+            <h1 class="rogo-name">CaD</h1>
             <nav class="header-nav">
                 <a href="mypage.html">マイページ</a>
+                <a href="index.html">依頼を見る</a>
+                <a href="check-portfolio.html">作品を見る</a>
                 <a href="likes.html">いいね作品</a>
                 <a href="requests.html">検討中</a>
                 <a href="messaage.html">メッセージ</a>
@@ -20,14 +22,36 @@
         </div>
 
         <div class="add-btnheader">
-            <button id="add-portfolio-btn">＋ 作品を追加</button>
-            <button id="add-request-btn">＋ 依頼を投稿</button>
+            <a href="post-portfolio.html" style="text-decoration: none;">
+                <button id="add-portfolio-btn">＋ 作品を追加</button>
+            </a>
+                <button id="add-request-btn">＋ 依頼を投稿</button>
         </div>
     </header>
 
 
     <main class="request-mainbox">
         <div class="request-subbox">
+            
+            <aside class="side-nav">
+            <div class="nav-item">
+                <span class="icon">👤</span>
+                <p>プロフィール</p>
+            </div>
+            <div class="nav-item">
+                <span class="icon">💙</span>
+                <p>いいね作品</p>
+            </div>
+            <div class="nav-item active">
+                <span class="icon">📁</span>
+                <p>作品を追加</p>
+            </div>
+            <div class="nav-item">
+                <span class="icon">💬</span>
+                <p>メッセージ</p>
+            </div>
+        </aside>
+
             <div class="request-category">
                 <h6 class="category-name">カテゴリ検索</h6>
                 <fieldset class="request-department">
