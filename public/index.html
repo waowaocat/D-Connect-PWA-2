@@ -8,50 +8,57 @@
 
 </head>
 <body>
-    <header>
-        <div class="header-left">
-            <h1 class="rogo-name">CaD</h1>
-            <nav class="header-nav">
-                <a href="mypage.html">マイページ</a>
-                <a href="index.html">依頼を見る</a>
-                <a href="check-portfolio.html">作品を見る</a>
-                <a href="likes.html">いいね作品</a>
-                <a href="requests.html">検討中</a>
-                <a href="messaage.html">メッセージ</a>
-            </nav>   
-        </div>
+<div class="request-subbox">
 
-        <div class="add-btnheader">
-            <a href="post-portfolio.html" style="text-decoration: none;">
-                <button id="add-portfolio-btn">＋ 作品を追加</button>
-            </a>
-                <button id="add-request-btn">＋ 依頼を投稿</button>
-        </div>
-    </header>
+    <nav class="side-nav-blue ">
+        <button class="hamburger-btn">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
 
-
-    <main class="request-mainbox">
-        <div class="request-subbox">
-            
-            <aside class="side-nav">
-            <div class="nav-item">
+        <div class="nav-items">
+            <div class="nav-item-blue">
                 <span class="icon">👤</span>
                 <p>プロフィール</p>
             </div>
-            <div class="nav-item">
+            <div class="nav-item-blue">
                 <span class="icon">💙</span>
                 <p>いいね作品</p>
             </div>
-            <div class="nav-item active">
+            <div class="nav-item-blue">
                 <span class="icon">📁</span>
                 <p>作品を追加</p>
             </div>
-            <div class="nav-item">
+            <div class="nav-item-blue">
                 <span class="icon">💬</span>
                 <p>メッセージ</p>
             </div>
-        </aside>
+        </div>    
+    </nav>
 
+    <div class="request-box">
+        <header class="request-header">
+            <div class="header-left">
+                <h1 class="rogo-name">CaD</h1>
+                <nav class="header-nav">
+                    <a href="mypage.html">マイページ</a>
+                    <a href="index.html">依頼を見る</a>
+                    <a href="check-portfolio.html">作品を見る</a>
+                    <a href="likes.html">いいね作品</a>
+                    <a href="requests.html">検討中</a>
+                    <a href="messaage.html">メッセージ</a>
+                </nav>   
+            </div>
+            <div class="add-btnheader">
+                <a href="post-portfolio.html" style="text-decoration: none;">
+                    <button id="add-portfolio-btn">＋ 作品を追加</button>
+                </a>
+                    <button id="add-request-btn">＋ 依頼を投稿</button>
+            </div>
+        </header>
+        <main class="request-mainbox">
+        <div class="request-category-box">
             <div class="request-category">
                 <h6 class="category-name">カテゴリ検索</h6>
                 <fieldset class="request-department">
@@ -78,40 +85,40 @@
                     </div>
                 </fieldset>
             </div>
-
+         </div>         
             <div id="request-list"></div>
             
-                
+                   
             <!-- <div class="loading-message">依頼データを読み込み中...</div> -->
-        </div>
-    </main>
-
+        </main>
+    </div>
+</div>
     <!-- 依頼投稿カード背景黒にするバージョン -->
-    <div id="post-form-container" class="post-form-container" style="display: none;">
+    <!-- <div id="post-form-container" class="post-form-container" style="display: none;">
 
         <div id="request-form-card">
-        <h3>新しい依頼を投稿する</h3>
+            <h3>新しい依頼を投稿する</h3>
 
-      <form id="request-form">
-        
-           <input type="text" id="title" placeholder="タイトル" required>
-            <select id="discipline" required>
-                <option value="" disabled selected>学科を選択</option>
-                <option value="デジタルデザイン科">デジタルデザイン科</option>
-                <option value="グラフィック・デザイン科">グラフィック・デザイン科</option>
-                <option value="イラストレーション科">イラストレーション科</option>
-                <option value="キャラクターデザイン科">キャラクターデザイン科</option>
-                <option value="写真科">写真科</option>
-                <option value="アート科">アート科</option>
-                <option value="ジュエリーデザイン科">ジュエリーデザイン科</option>
-        </select>
-            <textarea id="description" placeholder="依頼の詳細（500字以内）" required maxlength="500"></textarea>
-            <div style="display: flex; gap: 10px;">
-            <button type="submit">投稿する</button>
-            <button type="button" id="close-form-btn">× 閉じる</button>
-        </form>
-    </div>
-    </div>
+            <form id="request-form">
+                
+                <input type="text" id="title" placeholder="タイトル" required>
+                    <select id="discipline" required>
+                        <option value="" disabled selected>学科を選択</option>
+                        <option value="デジタルデザイン科">デジタルデザイン科</option>
+                        <option value="グラフィック・デザイン科">グラフィック・デザイン科</option>
+                        <option value="イラストレーション科">イラストレーション科</option>
+                        <option value="キャラクターデザイン科">キャラクターデザイン科</option>
+                        <option value="写真科">写真科</option>
+                        <option value="アート科">アート科</option>
+                        <option value="ジュエリーデザイン科">ジュエリーデザイン科</option>
+                </select>
+                    <textarea id="description" placeholder="依頼の詳細（500字以内）" required maxlength="500"></textarea>
+                    <div style="display: flex; gap: 10px;">
+                    <button type="submit">投稿する</button>
+                    <button type="button" id="close-form-btn">× 閉じる</button>
+            </form>
+        </div>
+    </div> -->
 
     
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>

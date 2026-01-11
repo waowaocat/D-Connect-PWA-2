@@ -85,26 +85,100 @@ header {
 #add-request-btn:hover {
     background-color: #218838;
 }
+.request-header {
+    background-color: #ffffff; /* 青色 */
+    color: rgb(7, 98, 255);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between; /* ロゴとボタンを左右に配置 */
+    align-items: center;
+    border-bottom: 1px solid #dbdbdb;
+    position: sticky; /* スクロールしてもヘッダーを固定 */
+    top: 0;
+    z-index: 1000;
+}
+.side-nav-blue {
+    width: 80px;
+    flex-shrink: 0;
+    background-color: #2b40ff;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+    position: sticky;
+    top: 0px;
+    height: 100vh;
+}
+.nav-items {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 8px;
+}
+
+.nav-item-blue .icon { font-size: 18px; display: block; margin-bottom: 5px; }
+.nav-item-blue p { font-size: 11px; margin: 0; }
+
+.nav-item-blue {
+    font-weight: 400;
+    text-align: center;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.hamburger-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    margin-top: 16px;
+}
+
+.line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+}
 
 /* 3. メインコンテンツ (main) のスタイル */
 /* 3. メインコンテンツ (main) のスタイル */
 /* 3. メインコンテンツ (main) のスタイル */
 
-.request-mainbox{
+
+.request-subbox{
     display: flex !important;
     flex-direction: row !important;
     min-height: 100vh;
+}    
+.request-box {
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 100%;
 }
-.request-subbox{
-    display: flex !important;
-    gap: 40px !important;
 
+.request-mainbox{
+    margin-top: 80px;
+    display: flex;
+    flex-direction: row;
+    gap: 80px;
 }
+
 .request-category{
     /* width: 200px; */
     flex-shrink: 0;
     position: sticky;
-    top: 100px;
+    top: 151px;
+    margin-left: 160px;
+}
+.request-category-box {
+    flex-shrink: 0;
+    position: sticky;
+    top: 151px;
 }
     
 .request-category fieldset{
@@ -191,9 +265,6 @@ fieldset.open legend::after{
 
 #request-list {
     max-width: 1200px; /* 最大幅を設定して中央に寄せる */
-    margin: 0px auto;
-    margin-left: 30px;
-    width: 70%;
     
     /* 1列表示を維持 (モバイル優先) */
     display: grid; /* Gridコンテナとして設定 */
@@ -233,8 +304,8 @@ fieldset.open legend::after{
     margin: 0px;
     display: flex;
     flex-direction: column;
-    height: 480px;
-    gap: 12px;
+    max-height: 520px;
+    gap: 16px;
 
     transition: transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
@@ -252,25 +323,31 @@ fieldset.open legend::after{
     object-fit: cover; 
 }
 
+
 .request-card:hover {
     transform: translateY(-3px); /* ホバーで少し持ち上げる */
     box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* カード内のヘッダー（タイトルとステータス） */
-.card-header {
+
+.card-body {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start; /* 上揃え */
-    margin-bottom: 10px;
+    flex-direction: column;
+    height: 100%;
+    gap: 16px;
+    flex: 1;
+}
+.card-header {
     border-bottom: 1px dashed #eee;
-    padding-bottom: 10px;
+    margin:0;
+    padding-bottom: 16px;
 }
 
 .card-header h3 {
     font-size: 1.4em;
     color: #007bff;
-    margin-right: 15px; /* ステータスとの間にスペース */
+    margin: 0;
 }
 
 /* ステータスタグのスタイル（script.jsで status-tag クラスが付与される）*/
@@ -291,8 +368,8 @@ fieldset.open legend::after{
 
 /* カード内のその他の情報 */
 .request-card p {
-    margin: 8px 0;
     font-size: 0.95em;
+    margin: 0;
 }
 
 .request-card strong {
@@ -305,16 +382,15 @@ fieldset.open legend::after{
     color: #999;
     font-size: 0.8em;
     text-align: right;
-    margin-top: 15px;
+    margin: 0;
     border-top: 1px solid #f8f8f8;
-    padding-top: 10px;
-}
+    padding-top: 16px;
 
-/* ボタンのスタイル */
-.request-card button {
+}
+.detail-button {
+    margin-top: auto;
     display: block;
     width: 100%;
-    margin-top: 15px;
     padding: 10px;
     background-color: #007bff;
     color: white;
@@ -323,6 +399,19 @@ fieldset.open legend::after{
     cursor: pointer;
     transition: background-color 0.3s;
 }
+/* ボタンのスタイル */
+/* .request-card button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+} */
+
 
 .request-card button:hover {
     background-color: #0056b3;
@@ -402,8 +491,13 @@ fieldset.open legend::after{
     position: relative; /* フォームをボタン基準で配置するため */
 }
 
-
-
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
 ----------------------------------
 ----------------------------------
 ----------------------------------
@@ -422,7 +516,7 @@ fieldset.open legend::after{
 .post-portfolio-subbox {
     flex: 1;
     display: flex !important;
-    gap: 40px !important;
+    gap: 80px !important;
     padding-top: 40px;
 
 }
@@ -431,27 +525,31 @@ fieldset.open legend::after{
 .side-nav {
     width: 80px;
     flex-shrink: 0;
-    position: sticky;
-    background-color: #fafafa;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
     gap: 30px;
-    padding-top: 40px;
     align-items: center;
+    position: sticky;
+    top: 40px;
+    height: 100vh;
 }
+
 .nav-item {
-    font-weight: ;
+    font-weight: 300;
     text-align: center;
     color: #242424;
     cursor: pointer;
 }
+
 .nav-item.active { color: #0762ff; font-weight: bold; }
-.nav-item .icon { font-size: 24px; display: block; margin-bottom: 5px; }
-.nav-item p { font-size: 10px; margin: 0; }
+.nav-item .icon { font-size: 18px; display: block; margin-bottom: 5px; }
+.nav-item p { font-size: 11px; margin: 0; }
 
 /* 中央：アップロードエリア */
 .upload-section {
-    flex: 2; 
+    display: flex;
+    flex-direction: column;
     margin: 0 0 0 150px !important;
 }
 .section-title { font-size: 22px; margin-bottom: 25px; font-weight: bold; }
@@ -515,6 +613,13 @@ fieldset.open legend::after{
 
 
 
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
+----------------------------------
 ----------------------------------
 ----------------------------------
 ----------------------------------
