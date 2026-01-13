@@ -5,89 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>作品を投稿 - CaD</title>
     <link rel="stylesheet" href="style.css">
+
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+
+    <script>
+        const firebaseConfig = {
+        apiKey: "AIzaSyBuewFRUaZNw7iuhetCmym-iQXIyYKru6I",
+        authDomain: "d-connect-pwa.firebaseapp.com",
+        projectId: "d-connect-pwa",
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <div class="header-left">
-            <h1 class="rogo-name">CaD</h1>
-            <nav class="header-nav">
-                <a href="mypage.html">マイページ</a>
-                <a href="index.html">依頼を見る</a>
-                <a href="check-portfolio.html">作品を見る</a>
-                <a href="likes.html">いいね作品</a>
-                <a href="requests.html">検討中</a>
-                <a href="messaage.html">メッセージ</a>
-            </nav>   
-        </div>
+<div class="request-subbox">
 
-        <div class="add-btnheader">
-            <a href="post-portfolio.html" style="text-decoration: none;">
-                <button id="add-portfolio-btn">＋ 作品を追加</button>
-            </a>
-                <button id="add-request-btn">＋ 依頼を投稿</button>
-        </div>
-    </header>
+    <nav class="side-nav-blue ">
+        <button class="hamburger-btn">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
 
-<main class="post-portfolio-container">
-    <div class="post-portfolio-subbox">
-        
-        <aside class="side-nav">
-            <div class="nav-item">
+        <div class="nav-items">
+            <div class="nav-item-blue">
                 <span class="icon">👤</span>
                 <p>プロフィール</p>
             </div>
-            <div class="nav-item">
+            <div class="nav-item-blue">
                 <span class="icon">💙</span>
                 <p>いいね作品</p>
             </div>
-            <div class="nav-item active">
+            <div class="nav-item-blue">
                 <span class="icon">📁</span>
                 <p>作品を追加</p>
             </div>
-            <div class="nav-item">
+            <div class="nav-item-blue">
                 <span class="icon">💬</span>
                 <p>メッセージ</p>
             </div>
-        </aside>
+        </div>    
+    </nav>
 
-        <section class="upload-section">
-            <h2 class="section-title">作品を追加</h2>
-            <div class="upload-dropzone">
-                <div class="upload-main-content">
-                    <div class="big-upload-icon">↑</div>
-                    <p class="main-text">・クリック</p>
-                    <p class="main-text">・ドラッグ＆ドロップ</p>
-                    <p class="sub-text">JPG・PNG・PDF・GIF (1画像8MBまで)</p>
+    <div class="request-box">
+
+        <header class="request-header">
+            <div class="header-left">
+                <h1 class="rogo-name">CaD</h1>
+                <nav class="header-nav">
+                    <a href="mypage.html">マイページ</a>
+                    <a href="index.html">依頼を見る</a>
+                    <a href="check-portfolio.html">作品を見る</a>
+                    <a href="likes.html">いいね作品</a>
+                    <a href="requests.html">検討中</a>
+                    <a href="messaage.html">メッセージ</a>
+                </nav>   
+            </div>
+            <div class="add-btnheader">
+                <a href="post-portfolio.html" style="text-decoration: none;">
+                    <button id="add-portfolio-btn">＋ 作品を追加</button>
+                </a>
+                    <button id="add-request-btn">＋ 依頼を投稿</button>
+            </div>
+        </header>
+
+        <main class="post-portfolio-mainbox">
+
+            <section class="upload-section">
+                <h2 class="section-title">作品を追加</h2>
+                <input type="file" id="portfolio-file-input" accept="image/*" style="display: none;">
+                <div class="upload-dropzone" id="portfolio-drop-area">
+                    <div id="portfolio-preview-container" style="display: none; width: 100%; height: 100%;">
+                        <img id="portfolio-preview-img" src="" style="width:100%; height:100%; object-fit: cover;">
+                    </div>
+                    <div class="upload-main-content" id="portfolio-upload-default">
+                        <div class="big-upload-icon">↑</div>
+                        <p class="main-text">・クリック</p>
+                        <p class="main-text">・ドラッグ＆ドロップ</p>
+                        <p class="sub-text">JPG・PNG・PDF・GIF (1画像8MBまで)</p>
+                    </div>
+                    <div class="upload-bottom-bar">
+                        <span>🖼️ JPG・PNG・PDF・GIF</span>
+                    </div>
                 </div>
-                <div class="upload-bottom-bar">
-                    <span>🖼️ JPG・PNG・PDF・GIF</span>
+            </section>
+
+            <section class="form-section">
+                <div class="form-group">
+                    <label>タイトル</label>
+                    <input type="text" id="portfolio-title" placeholder="作品名">
                 </div>
-            </div>
-        </section>
-
-        <section class="form-section">
-            <div class="form-group">
-                <label>タイトル</label>
-                <input type="text" placeholder="作品名">
-            </div>
-            <div class="form-group">
-                <label>説明文</label>
-                <textarea placeholder="作品の背景やこだわりを教えてください"></textarea>
-            </div>
-            <div class="form-group">
-                <label>作品ジャンル</label>
-                <select>
-                    <option>ジャンル</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label>使用ツール・スキル</label>
-                <input type="text">
-            </div>
-        </section>
-
+                <div class="form-group">
+                    <label>説明文</label>
+                    <textarea id="portfolio-desc" placeholder="作品の背景やこだわりを教えてください"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>作品ジャンル</label>
+                    <select>
+                        <option>ジャンル</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>使用ツール・スキル</label>
+                    <input type="text">
+                </div>
+                <button id="portfolio-post-btn" style="width: 100%; padding: 15px; background: #007bff; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 20px;">作品を公開する</button>
+            </section>
+        </main>
     </div>
-</main>
+</div>
 </body>
 </html>

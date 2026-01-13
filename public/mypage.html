@@ -8,47 +8,54 @@
 </head>
 
 <body>
-    <header>
-        <div class="header-left">
-            <h1 class="rogo-name">CaD</h1>
-            <nav class="header-nav">
-                <a href="mypage.html">マイページ</a>
-                <a href="index.html">依頼を見る</a>
-                <a href="check-portfolio.html">作品を見る</a>
-                <a href="likes.html">いいね作品</a>
-                <a href="requests.html">検討中</a>
-                <a href="messaage.html">メッセージ</a>
-            </nav>   
-        </div>
+<div class="request-subbox">
 
-        <div class="add-btnheader">
-            <a href="post-portfolio.html" style="text-decoration: none;">
-                <button id="add-portfolio-btn">＋ 作品を追加</button>
-            </a>
-                <button id="add-request-btn">＋ 依頼を投稿</button>
-        </div>
-    </header>
-<main class="mypage-container">
-    <div class="mypage-subbox">
-        <aside class="side-nav">
-            <div class="nav-item">
+    <nav class="side-nav-blue ">
+        <button class="hamburger-btn">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
+
+        <div class="nav-items">
+            <div class="nav-item-blue">
                 <span class="icon">👤</span>
                 <p>プロフィール</p>
             </div>
-            <div class="nav-item">
+            <div class="nav-item-blue">
                 <span class="icon">💙</span>
                 <p>いいね作品</p>
             </div>
-            <div class="nav-item active">
+            <div class="nav-item-blue">
                 <span class="icon">📁</span>
                 <p>作品を追加</p>
             </div>
-            <div class="nav-item">
+            <div class="nav-item-blue">
                 <span class="icon">💬</span>
                 <p>メッセージ</p>
             </div>
-        </aside>  
-
+        </div>    
+    </nav>
+    <div class="request-box">
+        <header class="request-header">
+            <div class="header-left">
+                <h1 class="rogo-name">CaD</h1>
+                <nav class="header-nav">
+                    <a href="mypage.html">マイページ</a>
+                    <a href="index.html">依頼を見る</a>
+                    <a href="check-portfolio.html">作品を見る</a>
+                    <a href="likes.html">いいね作品</a>
+                    <a href="requests.html">検討中</a>
+                    <a href="messaage.html">メッセージ</a>
+                </nav>   
+            </div>
+            <div class="add-btnheader">
+                <a href="post-portfolio.html" style="text-decoration: none;">
+                    <button id="add-portfolio-btn">＋ 作品を追加</button>
+                </a>
+                    <button id="add-request-btn">＋ 依頼を投稿</button>
+            </div>
+        </header>
         <section class="mypage-profile-card">
             <div class="profile-avatar-wrapper">
                 <div id="user-avatar" class="profile-avatar"></div>

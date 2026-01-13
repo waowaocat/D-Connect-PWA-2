@@ -3,60 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>作品を投稿 - CaD</title>
+    <title>作品一覧 | CaA </title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header>
-        <div class="header-left">
-            <h1 class="rogo-name">CaD</h1>
-            <nav class="header-nav">
-                <a href="mypage.html">マイページ</a>
-                <a href="index.html">依頼を見る</a>
-                <a href="check-portfolio.html">作品を見る</a>
-                <a href="likes.html">いいね作品</a>
-                <a href="requests.html">検討中</a>
-                <a href="messaage.html">メッセージ</a>
-            </nav>   
-        </div>
+<div class="request-subbox">
 
-        <div class="add-btnheader">
-            <a href="post-portfolio.html" style="text-decoration: none;">
-                <button id="add-portfolio-btn">＋ 作品を追加</button>
-            </a>
-                <button id="add-request-btn">＋ 依頼を投稿</button>
-        </div>
-    </header>
-    <main class="check-portfolio-container">
-        <div class="check-portfolio-subbox">
-            <div class="check-portfolio-category">
-                <h6 class="check-portfolio-category-name">カテゴリ検索</h6>
-                <fieldset class="check-portfolio-category-department">
-                    <legend>学科</legend>
-                    <div class="dropdown-menu">
-                        <div>グラフィックデザイン科</div>
-                        <div>デジタルデザイン科</div>
-                        <div>キャラクターデザイン科</div>
-                        <div>イラストレーション科</div>
-                        <div>ジュエリーデザイン科</div>
-                        <div>フォトグラファー科</div>
-                        <div>アート科</div>
-                    </div>
-                <fieldset class="check-portfolio-category-genre">
-                    <legend>ジャンル</legend>
-                    <div class="dropdown-menu">
-                        <div>グラフィック</div>
-                        <div>webデザイン</div>
-                        <div>キャラクター</div>
-                        <div>イラストレ</div>
-                        <div>ジュエリー</div>
-                        <div>フォト</div>
-                        <div>アート</div>
-                    </div>                   
-                </fieldset>
+    <nav class="side-nav-blue ">
+        <button class="hamburger-btn">
+            <span class="line"></span>
+            <span class="line"></span>
+            <span class="line"></span>
+        </button>
+
+        <div class="nav-items">
+            <div class="nav-item-blue">
+                <span class="icon">👤</span>
+                <p>プロフィール</p>
             </div>
-        </div>
+            <div class="nav-item-blue">
+                <span class="icon">💙</span>
+                <p>いいね作品</p>
+            </div>
+            <div class="nav-item-blue">
+                <span class="icon">📁</span>
+                <p>作品を追加</p>
+            </div>
+            <div class="nav-item-blue">
+                <span class="icon">💬</span>
+                <p>メッセージ</p>
+            </div>
+        </div>    
+    </nav>
 
-    </main>
+    <div class="request-box">
+
+        <header class="request-header">
+            <div class="header-left">
+                <h1 class="rogo-name">CaD</h1>
+                <nav class="header-nav">
+                    <a href="mypage.html">マイページ</a>
+                    <a href="index.html">依頼を見る</a>
+                    <a href="check-portfolio.html">作品を見る</a>
+                    <a href="likes.html">いいね作品</a>
+                    <a href="requests.html">検討中</a>
+                    <a href="messaage.html">メッセージ</a>
+                </nav>   
+            </div>
+            <div class="add-btnheader">
+                <a href="post-portfolio.html" style="text-decoration: none;">
+                    <button id="add-portfolio-btn">＋ 作品を追加</button>
+                </a>
+                    <button id="add-request-btn">＋ 依頼を投稿</button>
+            </div>
+        </header>
+        
+        <main class="check-portfolio-container">
+
+            <div class="check-portfolio-box">
+                <div class="check-portfolio-category">
+                    <h6 class="check-portfolio-category-name">カテゴリ検索</h6>
+                    <fieldset class="check-portfolio-category-department">
+                        <legend>学科</legend>
+                        <div class="dropdown-menu">
+                            <div>グラフィックデザイン科</div>
+                            <div>デジタルデザイン科</div>
+                            <div>キャラクターデザイン科</div>
+                            <div>イラストレーション科</div>
+                            <div>ジュエリーデザイン科</div>
+                            <div>フォトグラファー科</div>
+                            <div>アート科</div>
+                        </div>
+                    <fieldset class="check-portfolio-category-genre">
+                        <legend>ジャンル</legend>
+                        <div class="dropdown-menu">
+                            <div>グラフィック</div>
+                            <div>webデザイン</div>
+                            <div>キャラクター</div>
+                            <div>イラストレ</div>
+                            <div>ジュエリー</div>
+                            <div>フォト</div>
+                            <div>アート</div>
+                        </div>                   
+                    </fieldset>
+                </div>
+            </div>
+            
+            <section id="portfolio-app" class="app-viewport">
+                <header class="gallery-controls">
+                    <h2 class="section-title">作品一</h2>
+                    <div id="gallery-filter-root"></div>
+                </header>
+                <div id="portfolio-feed" class="portfolio-grid-layout">
+                </div>
+
+                <div id="feedback-region">
+                    <div id="loader-element" class="spinner">読み込み中...
+                    </div>
+                    <p id="empty-notice" style="display: none;">まだ投稿がありません。最初の投稿をしてみましょう！
+                    </p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</div>    
 </body>
